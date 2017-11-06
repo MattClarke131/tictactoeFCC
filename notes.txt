@@ -1,0 +1,7 @@
+tictactoe project notes
+
+Questions
+1. What should I consider when making data structures?
+    is an array of strings or an array of numbers better?
+    or does that not matter as much
+2. How should I write a test file?
