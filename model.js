@@ -74,6 +74,8 @@ Tictac.Model = function() {
         return this.checkTicTacToe(0,2,1,1,2,0);
       } else if(this.checkBoardFilled()) {
         return "draw";
+      } else {
+        return "incomplete"
       }
     },
   };
