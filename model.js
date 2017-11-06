@@ -10,26 +10,23 @@ Tictac.Model = function() {
 
   //public
   var tictac = {
-    resetBoard: function() {
-      gameBoard = [["","",""],["","",""],["","",""]];
-      activePlayer = "x";
-    },
+    //Get methods
     getBoard: function() {
       return gameBoard;
     },
     getSquare: function(x,y) {
       return gameBoard[x][y];
     },
+    getActivePlayer: function() {
+      return activePlayer;
+    },
+
+    //Check methods
     isLegalMove: function(x,y) {
       if(gameBoard[x][y] == "") {
         return true;
       } else {
         return false;
-      }
-    },
-    playMove: function(x,y) {
-      if(this.isLegalMove(x,y)) {
-        gameBoard[x][y] = activePlayer;
       }
     },
     checkTicTacToe: function(ax, ay, bx, by, cx, cy) {
@@ -80,8 +77,12 @@ Tictac.Model = function() {
         return "incomplete"
       }
     },
-    getActivePlayer: function() {
-      return activePlayer;
+
+    //Change state methods
+    setSquare: function(x,y,player) {
+      if(this.isLegalMove(x,y)) {
+        gameBoard[x][y] = player;
+      };
     },
     toggleActivePlayer: function() {
       if (activePlayer == "x") {
@@ -90,6 +91,12 @@ Tictac.Model = function() {
         activePlayer = "x";
       }
     },
+    resetBoard: function() {
+      gameBoard = [["","",""],["","",""],["","",""]];
+      activePlayer = "x";
+    },
+
+    //Debug
     debugPrintBoard: function() {
       console.log(gameBoard[2]);
       console.log(gameBoard[1]);
