@@ -18,6 +18,9 @@
   margin: .5em;
 }
 
+.tictactoeButton p {
+  font-size: 6em;
+}
 
 footer {
   text-align: center;
