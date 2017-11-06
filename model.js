@@ -12,7 +12,10 @@ TicTac.Model = function() {
   var tictac = {
     resetBoard: function() {
       gameBoard = [["","",""],["","",""],["","",""]];
-    }
+    },
+    getBoard: function() {
+      return gameBoard;
+    },
     getSquare: function(x,y) {
       return gameBoard[x][y];
     },
