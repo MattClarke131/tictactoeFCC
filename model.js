@@ -83,7 +83,7 @@ Tictac.Model = function() {
     getActivePlayer: function() {
       return activePlayer;
     },
-    changeActivePlayer: function() {
+    toggleActivePlayer: function() {
       if (activePlayer == "x") {
         activePlayer = "o";
       } else {
