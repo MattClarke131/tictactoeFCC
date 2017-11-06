@@ -6,11 +6,14 @@ Tictac.Model = function() {
   //private
   var gameBoard = [["","",""],["","",""],["","",""]];
     //gameBoard[x-coord][y-coord];
+  var activePlayer = "x";
+
 
   //public
   var tictac = {
     resetBoard: function() {
       gameBoard = [["","",""],["","",""],["","",""]];
+      activePlayer = "x";
     },
     getBoard: function() {
       return gameBoard;
@@ -25,9 +28,9 @@ Tictac.Model = function() {
         return false;
       }
     },
-    playMove: function(x,y,player) {
+    playMove: function(x,y) {
       if(this.isLegalMove(x,y)) {
-        gameBoard[x][y] = player;
+        gameBoard[x][y] = activePlayer;
       }
     },
     checkTicTacToe: function(ax, ay, bx, by, cx, cy) {
@@ -76,6 +79,16 @@ Tictac.Model = function() {
         return "draw";
       } else {
         return "incomplete"
+      }
+    },
+    getActivePlayer: function() {
+      return activePlayer;
+    }
+    changeActivePlayer: function() {
+      if (activePlayer == "x") {
+        activePlayer = "o";
+      } else {
+        activePlayer = "x";
       }
     },
   };
