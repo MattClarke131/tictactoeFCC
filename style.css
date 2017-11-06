@@ -8,8 +8,10 @@
   margin-top: 1em;
 }
 
-.resetButton {
-  margin-top: 1em;
+.tictactoeMenu .btn {
+  height: 5em;
+  width: 15em;
+  margin: 1em;
 }
 
 .tictactoeButton {
