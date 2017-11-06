@@ -8,7 +8,6 @@ Tictac.Model = function() {
     //gameBoard[x-coord][y-coord];
   var activePlayer = "x";
 
-
   //public
   var tictac = {
     resetBoard: function() {
@@ -83,7 +82,7 @@ Tictac.Model = function() {
     },
     getActivePlayer: function() {
       return activePlayer;
-    }
+    },
     changeActivePlayer: function() {
       if (activePlayer == "x") {
         activePlayer = "o";
