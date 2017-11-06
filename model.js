@@ -90,6 +90,11 @@ Tictac.Model = function() {
         activePlayer = "x";
       }
     },
+    debugPrintBoard: function() {
+      console.log(gameBoard[2]);
+      console.log(gameBoard[1]);
+      console.log(gameBoard[0]);
+    }
   };
   return tictac;
 }
