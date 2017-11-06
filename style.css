@@ -1,0 +1,25 @@
+
+.tictactoeBox {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.tictactoeGame {
+  margin-top: 1em;
+}
+
+.resetButton {
+  margin-top: 1em;
+}
+
+.tictactoeButton {
+  height: 10em;
+  width: 10em;
+  margin: .5em;
+}
+
+
+footer {
+  text-align: center;
+  margin-top: 1em;
+}
