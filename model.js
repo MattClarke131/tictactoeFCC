@@ -2,11 +2,10 @@
 console.log("model.js successfully loaded");
 
 var Tictac = {};
-TicTac.Model = function() {
+Tictac.Model = function() {
   //private
   var gameBoard = [["","",""],["","",""],["","",""]];
-
-    //gameBoard[x][y];
+    //gameBoard[x-coord][y-coord];
 
   //public
   var tictac = {
@@ -49,31 +48,31 @@ TicTac.Model = function() {
          gameBoard[1][2] != "" &&
          gameBoard[2][0] != "" &&
          gameBoard[2][1] != "" &&
-         gameBoard[2][2] != "" &&
-      ) {
+         gameBoard[2][2] != "")
+      {
         return true;
       } else {
         return false;
       }
     },
     checkGameStatus: function() {
-      if(checkTicTacToe(0,0,0,1,0,2)) {
-        return checkTicTacToe(0,0,0,1,0,2);
-      } else if (checkTicTacToe(1,0,1,1,1,2)) {
-        return checkTicTacToe(1,0,1,1,1,2);
-      } else if (checkTicTacToe(2,0,2,1,2,2)) {
-        return checkTicTacToe(2,0,2,1,2,2);
-      } else if (checkTicTacToe(0,0,1,0,2,0)) {
-        return checkTicTacToe(0,0,1,0,2,0);
-      } else if (checkTicTacToe(0,1,1,1,2,1)) {
-        return checkTicTacToe(0,1,1,1,2,1);
-      } else if (checkTicTacToe(0,2,1,2,2,2)) {
-        return checkTicTacToe(0,2,1,2,2,2);
-      } else if (checkTicTacToe(0,0,1,1,2,2)) {
-        return checkTicTacToe(0,0,1,1,2,2);
-      } else if (checkTicTacToe(0,2,1,1,2,0)) {
-        return checkTicTacToe(0,2,1,1,2,0);
-      } else if(checkBoardFilled()) {
+      if(this.checkTicTacToe(0,0,0,1,0,2)) {
+        return this.checkTicTacToe(0,0,0,1,0,2);
+      } else if (this.checkTicTacToe(1,0,1,1,1,2)) {
+        return this.checkTicTacToe(1,0,1,1,1,2);
+      } else if (this.checkTicTacToe(2,0,2,1,2,2)) {
+        return this.checkTicTacToe(2,0,2,1,2,2);
+      } else if (this.checkTicTacToe(0,0,1,0,2,0)) {
+        return this.checkTicTacToe(0,0,1,0,2,0);
+      } else if (this.checkTicTacToe(0,1,1,1,2,1)) {
+        return this.checkTicTacToe(0,1,1,1,2,1);
+      } else if (this.checkTicTacToe(0,2,1,2,2,2)) {
+        return this.checkTicTacToe(0,2,1,2,2,2);
+      } else if (this.checkTicTacToe(0,0,1,1,2,2)) {
+        return this.checkTicTacToe(0,0,1,1,2,2);
+      } else if (this.checkTicTacToe(0,2,1,1,2,0)) {
+        return this.checkTicTacToe(0,2,1,1,2,0);
+      } else if(this.checkBoardFilled()) {
         return "draw";
       }
     },
