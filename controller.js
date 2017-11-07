@@ -15,6 +15,7 @@ Tictac.Controller = function() {
       this.ticTacBox.getElementsByClassName("twoPlayerButton")[0].onclick =
         function() {
           controller.model.startTwoPlayerGame();
+          controller.init2PGame();
           controller.updateHTML();
       };
       this.ticTacBox.getElementsByClassName("resetButton")[0].onclick =
@@ -22,6 +23,19 @@ Tictac.Controller = function() {
           controller.model.resetBoard();
           controller.updateHTML();
       };
+    },
+    init2PGame: function() {
+      var controller = this;
+      var buttons =
+        controller.ticTacBox.getElementsByClassName("tictactoeButton");
+      for(i=0;i<9;i++) {
+        buttons[i].onclick = function() {
+          var xcoord = this.getAttribute("data-xaxis");
+          var ycoord = this.getAttribute("data-yaxis");
+          controller.model.twoPlayerMove(xcoord,ycoord);
+          controller.updateHTML();
+        }
+      }
     },
     updateHTML: function() {
       var controller = this;
