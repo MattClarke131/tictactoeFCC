@@ -39,7 +39,8 @@ Tictac.Controller = function() {
     },
     updateHTML: function() {
       var controller = this;
-      var buttons = controller.ticTacBox.getElementsByClassName("tictactoeButton");
+      var buttons =
+        controller.ticTacBox.getElementsByClassName("tictactoeButton");
       for (i=0;i<9;i++) {
         var xcoord = buttons[i].getAttribute("data-xaxis");
         var ycoord = buttons[i].getAttribute("data-yaxis");
