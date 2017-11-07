@@ -24,8 +24,24 @@ Tictac.Model = function() {
     getNumPlayers: function() {
       return numPlayers;
     },
+
+    //Change state methods
+    setSquare: function(x,y,player) {
+      gameBoard[x][y] = player;
+    },
+    toggleActivePlayer: function() {
+      if (activePlayer == "x") {
+        activePlayer = "o";
+      } else {
+        activePlayer = "x";
+      }
+    },
     setNumPlayers: function(number) {
       numPlayers = number;
+    },
+    resetBoard: function() {
+      gameBoard = [["","",""],["","",""],["","",""]];
+      activePlayer = "x";
     },
 
     //Check methods
@@ -85,22 +101,9 @@ Tictac.Model = function() {
       }
     },
 
-    //Change state methods
-    setSquare: function(x,y,player) {
       if(this.isLegalMove(x,y)) {
         gameBoard[x][y] = player;
       };
-    },
-    toggleActivePlayer: function() {
-      if (activePlayer == "x") {
-        activePlayer = "o";
-      } else {
-        activePlayer = "x";
-      }
-    },
-    resetBoard: function() {
-      gameBoard = [["","",""],["","",""],["","",""]];
-      activePlayer = "x";
     },
 
     //Debug
