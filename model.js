@@ -133,5 +133,6 @@ Tictac.Model = function() {
       console.log([gameBoard[0][1],gameBoard[1][1],gameBoard[2][1]]);
       console.log([gameBoard[0][0],gameBoard[1][0],gameBoard[2][0]]);
     },
+  };
   return tictac;
 }
