@@ -22,6 +22,7 @@
 
 .tictactoeButton p {
   font-size: 6em;
+  text-transform: uppercase;
 }
 
 footer {
