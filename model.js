@@ -7,6 +7,7 @@ Tictac.Model = function() {
   var gameBoard = [["","",""],["","",""],["","",""]];
     //gameBoard[x-coord][y-coord];
   var activePlayer = "x";
+  var numPlayers = null;
 
   //public
   var tictac = {
@@ -19,6 +20,12 @@ Tictac.Model = function() {
     },
     getActivePlayer: function() {
       return activePlayer;
+    },
+    getNumPlayers: function() {
+      return numPlayers;
+    },
+    setNumPlayers: function(number) {
+      numPlayers = number;
     },
 
     //Check methods
