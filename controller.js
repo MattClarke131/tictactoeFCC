@@ -6,6 +6,23 @@ Tictac.Controller = function() {
     ticTacBox: document.getElementsByClassName("ticTacToeBox")[0],
     model: Tictac.Model(),
     initialize: function() {
+      var controller = this;
+      this.ticTacBox.getElementsByClassName("onePlayerButton")[0].onclick =
+        function() {
+          // start one player game
+          controller.updateHTML();
+      };
+      this.ticTacBox.getElementsByClassName("twoPlayerButton")[0].onclick =
+        function() {
+          controller.model.startTwoPlayerGame();
+          controller.updateHTML();
+      };
+      this.ticTacBox.getElementsByClassName("resetButton")[0].onclick =
+        function() {
+          controller.model.resetBoard();
+          controller.updateHTML();
+      };
+    },
     updateHTML: function() {
       var controller = this;
       var buttons = controller.ticTacBox.getElementsByClassName("tictactoeButton");
@@ -20,3 +37,4 @@ Tictac.Controller = function() {
 };
 
 var controller = Tictac.Controller();
+controller.initialize();
