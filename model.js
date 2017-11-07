@@ -101,8 +101,29 @@ Tictac.Model = function() {
       }
     },
 
+    //Two player game
+    startTwoPlayerGame: function() {
+      this.resetBoard();
+      this.setNumPlayers(2);
+    },
+    twoPlayerMove: function(x,y) {
       if(this.isLegalMove(x,y)) {
-        gameBoard[x][y] = player;
+        this.setSquare(x,y,activePlayer);
+        switch(this.checkGameStatus()) {
+          case "incomplete":
+            this.toggleActivePlayer();
+            break;
+          case "draw":
+            console.log("GAME IS A DRAW");
+            alert("GAME IS A DRAW");
+            break;
+          case "x":
+            alert("X WINS!");
+            break;
+          case "o":
+            alert("O WINS!");
+            break;
+        };
       };
     },
 
