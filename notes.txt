@@ -1,5 +1,35 @@
 tictactoe project notes
 
+Game FLow:
+1: New game
+  1.1: Single Player
+    1.2.0 Initialize game     ==>
+      1.2.0.1 reset board
+      1.2.0.2 reset active player
+    1.2.1 Active Player moves ==>
+      1.2.1.1 apply move to board
+    1.2.2 Check board state   ==> 1.2.3 or 1.2.6
+      1.2.2.1 check for wins
+      1.2.2.2 check for draws
+    1.2.3 Toggle Player
+    1.2.4 AI makes move
+    1.2.5 Toggle Player
+    1.2.6 Finish game
+      1.2.6.1 execute win animation/alert/message
+  1.2: Two Player
+    1.2.0 Initialize game     ==>
+      1.2.0.1 reset board
+      1.2.0.2 reset active player
+    1.2.1 Active Player moves ==>
+      1.2.1.1 If move is illegal, ==> 1.2.1
+      1.2.1.2 Apply move
+    1.2.2 Check board state   ==> 1.2.3 or 1.2.4
+      1.2.2.1 check for wins
+      1.2.2.2 check for draws
+    1.2.3 Toggle Player       ==> 1.2.1
+    1.2.4 Finish game
+      1.2.4.1 execute win animation/alert/message
+
 Questions
 1. What should I consider when making data structures?
     is an array of strings or an array of numbers better?
