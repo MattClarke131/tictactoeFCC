@@ -114,7 +114,6 @@ Tictac.Model = function() {
             this.toggleActivePlayer();
             break;
           case "draw":
-            console.log("GAME IS A DRAW");
             alert("GAME IS A DRAW");
             break;
           case "x":
