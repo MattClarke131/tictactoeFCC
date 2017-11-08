@@ -5,3 +5,6 @@ HTML: A+
   it is weird to have tags within a button
 
 CSS:
+  using classes like ids. insead, try trusting the tree structure of html/css
+  -Sass and Less exist. They are alternatives to CSS. for when you eventually tire of all the repetition
+  
