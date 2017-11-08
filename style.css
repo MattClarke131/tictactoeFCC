@@ -2,6 +2,7 @@
 .tictactoeBox {
   text-align: center;
   margin-top: 2em;
+  background-color: #FFF5B4;
 }
 
 .tictactoeGame {
@@ -12,12 +13,18 @@
   height: 5em;
   width: 15em;
   margin: 1em;
+  background-color: #FFD5B4;
+}
+
+.tictactoeMenu .btn p {
+  font-size: 2em;
 }
 
 .tictactoeButton {
   height: 10em;
   width: 10em;
   margin: .5em;
+  background-color: #BDE2A0;
 }
 
 .tictactoeButton p {
