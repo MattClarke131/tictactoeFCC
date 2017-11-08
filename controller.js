@@ -9,7 +9,8 @@ Tictac.Controller = function() {
       var controller = this;
       this.ticTacBox.getElementsByClassName("onePlayerButton")[0].onclick =
         function() {
-          // start one player game
+          controller.model.startOnePlayerGame();
+          controller.init1PGame();
           controller.updateHTML();
       };
       this.ticTacBox.getElementsByClassName("twoPlayerButton")[0].onclick =
@@ -33,6 +34,19 @@ Tictac.Controller = function() {
           var xcoord = this.getAttribute("data-xaxis");
           var ycoord = this.getAttribute("data-yaxis");
           controller.model.twoPlayerMove(xcoord,ycoord);
+          controller.updateHTML();
+        }
+      }
+    },
+    init1PGame: function() {
+      var controller = this;
+      var buttons =
+        controller.ticTacBox.getElementsByClassName("tictactoeButton");
+      for(i=0;i<9;i++) {
+        buttons[i].onclick = function() {
+          var xcoord = this.getAttribute("data-xaxis");
+          var ycoord = this.getAttribute("data-yaxis");
+          controller.model.onePlayerMove(xcoord,ycoord);
           controller.updateHTML();
         }
       }

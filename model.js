@@ -127,6 +127,58 @@ Tictac.Model = function() {
       };
     },
 
+    //One player game
+    startOnePlayerGame: function() {
+      this.resetBoard();
+      this.setNumPlayers(1);
+    },
+    onePlayerMove: function(x,y) {
+      if(this.isLegalMove(x,y)) {
+        this.setSquare(x,y,activePlayer);
+        switch(this.checkGameStatus()) {
+          case "incomplete":
+            this.toggleActivePlayer();
+            this.playRandomMove();
+            switch(this.checkGameStatus()) {
+              case "incomplete":
+                this.toggleActivePlayer();
+                break;
+              case "draw":
+                alert("GAME IS A DRAW");
+                break;
+              case "x":
+                alert("X WINS!");
+                break;
+              case "o":
+                alert("O WINS!");
+                break;
+            };
+            break;
+          case "draw":
+            alert("GAME IS A DRAW");
+            break;
+          case "x":
+            alert("X WINS!");
+            break;
+          case "o":
+            alert("O WINS!");
+            break;
+        };
+      };
+    },
+    playRandomMove: function() {
+      var availableMoves = [];
+      for(i=0;i<3;i++) {
+        for(j=0;j<3;j++) {
+          if(this.isLegalMove(i,j)) {
+            availableMoves.push([i,j]);
+          };
+        };
+      };
+      var move =availableMoves[Math.floor(Math.random()*availableMoves.length)];
+      this.setSquare(move[0],move[1],activePlayer);
+    },
+
     //Debug
     debugPrintBoard: function() {
       console.log([gameBoard[0][2],gameBoard[1][2],gameBoard[2][2]]);
