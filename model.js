@@ -49,53 +49,63 @@ Tictac.Model = function() {
         return false;
       }
     },
-    checkTicTacToe: function(ax, ay, bx, by, cx, cy) {
-      if(gameBoard[ax][ay] != "" &&
-         gameBoard[ax][ay] == gameBoard[bx][by] &&
-         gameBoard[ax][ay] == gameBoard[cx][cy]) {
-        return gameBoard[ax][ay];
-      } else {
-        return false;
-      }
-    },
-    checkBoardFilled: function() {
-      if(gameBoard[0][0] != "" &&
-         gameBoard[0][1] != "" &&
-         gameBoard[0][2] != "" &&
-         gameBoard[1][0] != "" &&
-         gameBoard[1][1] != "" &&
-         gameBoard[1][2] != "" &&
-         gameBoard[2][0] != "" &&
-         gameBoard[2][1] != "" &&
-         gameBoard[2][2] != "")
-      {
-        return true;
-      } else {
-        return false;
-      }
-    },
     checkGameStatus: function() {
-      if(this.checkTicTacToe(0,0,0,1,0,2)) {
-        return this.checkTicTacToe(0,0,0,1,0,2);
-      } else if (this.checkTicTacToe(1,0,1,1,1,2)) {
-        return this.checkTicTacToe(1,0,1,1,1,2);
-      } else if (this.checkTicTacToe(2,0,2,1,2,2)) {
-        return this.checkTicTacToe(2,0,2,1,2,2);
-      } else if (this.checkTicTacToe(0,0,1,0,2,0)) {
-        return this.checkTicTacToe(0,0,1,0,2,0);
-      } else if (this.checkTicTacToe(0,1,1,1,2,1)) {
-        return this.checkTicTacToe(0,1,1,1,2,1);
-      } else if (this.checkTicTacToe(0,2,1,2,2,2)) {
-        return this.checkTicTacToe(0,2,1,2,2,2);
-      } else if (this.checkTicTacToe(0,0,1,1,2,2)) {
-        return this.checkTicTacToe(0,0,1,1,2,2);
-      } else if (this.checkTicTacToe(0,2,1,1,2,0)) {
-        return this.checkTicTacToe(0,2,1,1,2,0);
-      } else if(this.checkBoardFilled()) {
-        return "draw";
-      } else {
-        return "incomplete"
+      return this._checkAllTicTacToe
+      || (this.checkBoardFilled() ? "draw" : "incomplete");
+    },
+    _checkAllTicTacToe: function() {
+      return _checkVertTicTacToe()
+          || _checkHorizTicTacToe()
+          || _checkDiagTicTacToe();
+    },
+    _checkVertTicTacToe: function() {
+      for(var i = 0; i < 3; i++) {
+        if(gameBoard[i][0] != "" &&
+           gameBoard[i][0] == gameBoard[i][1] &&
+           gameBoard[i][0] == gameBoard[i][2]) {
+             return gameBoard[i][0];
+         };
+      };
+      //else
+      return false;
+    },
+    _checkHorizTicTacToe: function() {
+      for(var i = 0; i < 3; i++) {
+        if(gameBoard[0][i] != "" &&
+           gameBoard[0][i] == gameBoard[1][i]
+           gameBoard[0][i] == gameBoard[2][i]) {
+             return gameBoard[0][i];
+         };
+      };
+      //else
+      return false;
+    },
+    _checkDiagTicTacToe: function() {
+      //bottom left to top right diagonal
+      if(gameBoard[0][0] != "" &&
+         gameBoard[0][0] == gameBoard[1][1] &&
+         gameBoard[0][0] == gameBoard[2][2]) {
+           return gameBoard[0][0];
+       };
+       //top left to bottom right diagonal
+      if(gameBoard[0][2] != "" &&
+         gameBoard[0][2] == gameBoard[1][1] &&
+         gameBoard[0][2] == gameBoard[2][0]) {
+           return gameBoard[0][2];
+       };
+       //else
+       return false;
+    },
+    _checkBoardFilled: function() {
+      for(var i = 0; i < 3; i++) {
+        for(var j = 0; j < 3; j++) {
+          if(gameBoard[i][j] == "") {
+            return false;
+          }
+        }
       }
+      //else
+      return true;
     },
 
     //Two player game
