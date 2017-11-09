@@ -1,3 +1,5 @@
+console.log("modelTest.js successfully loaded");
+
 Tictac.ModelTest = function() {
   var tictac = new Tictac.Model();
   var test = 0;
