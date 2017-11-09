@@ -169,5 +169,6 @@ Tictac.Model = function() {
       console.log([gameBoard[0][0],gameBoard[1][0],gameBoard[2][0]]);
     },
   };
+  tictac.resetBoard();
   return tictac;
 }
