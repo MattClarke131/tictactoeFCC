@@ -9,12 +9,14 @@ Tictac.Controller = function(node) {
       var controller = this;
       this.ticTacBox.getElementsByClassName("onePlayerButton")[0].onclick =
         function() {
+          controller.model.resetBoard();
           controller.model.startOnePlayerGame();
           controller.init1PGame();
           controller.updateHTML();
       };
       this.ticTacBox.getElementsByClassName("twoPlayerButton")[0].onclick =
         function() {
+          controller.model.resetBoard();
           controller.model.startTwoPlayerGame();
           controller.init2PGame();
           controller.updateHTML();
