@@ -50,13 +50,13 @@ Tictac.Model = function() {
       }
     },
     checkGameStatus: function() {
-      return this._checkAllTicTacToe
-      || (this.checkBoardFilled() ? "draw" : "incomplete");
+      return this._checkAllTicTacToe()
+      || (this._checkBoardFilled() ? "draw" : "incomplete");
     },
     _checkAllTicTacToe: function() {
-      return _checkVertTicTacToe()
-          || _checkHorizTicTacToe()
-          || _checkDiagTicTacToe();
+      return this._checkVertTicTacToe()
+          || this._checkHorizTicTacToe()
+          || this._checkDiagTicTacToe();
     },
     _checkVertTicTacToe: function() {
       for(var i = 0; i < 3; i++) {
@@ -72,7 +72,7 @@ Tictac.Model = function() {
     _checkHorizTicTacToe: function() {
       for(var i = 0; i < 3; i++) {
         if(gameBoard[0][i] != "" &&
-           gameBoard[0][i] == gameBoard[1][i]
+           gameBoard[0][i] == gameBoard[1][i] &&
            gameBoard[0][i] == gameBoard[2][i]) {
              return gameBoard[0][i];
          };
