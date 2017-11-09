@@ -1,9 +1,9 @@
 
 console.log("controller.js loaded");
 
-Tictac.Controller = function() {
+Tictac.Controller = function(node) {
   return {
-    ticTacBox: document.getElementsByClassName("ticTacToeBox")[0],
+    ticTacBox: node,
     model: Tictac.Model(),
     initialize: function() {
       var controller = this;
@@ -65,5 +65,9 @@ Tictac.Controller = function() {
   };
 };
 
-var controller = Tictac.Controller();
-controller.initialize();
+var ticTacNodes = document.getElementsByClassName("ticTacToeBox");
+for (var i = 0; i < ticTacNodes.length; ++i) {
+  var node = ticTacNodes[i];
+  var controller = Tictac.Controller(node);
+  controller.initialize();
+}
