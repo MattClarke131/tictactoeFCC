@@ -33,7 +33,7 @@ Tictac.Controller = function(node) {
         buttons[i].onclick = function() {
           var xcoord = this.getAttribute("data-xaxis");
           var ycoord = this.getAttribute("data-yaxis");
-          controller.model.twoPlayerMove(xcoord,ycoord);
+          controller.model.humanMove(xcoord,ycoord);
           controller.updateHTML();
         }
       }
@@ -46,7 +46,7 @@ Tictac.Controller = function(node) {
         buttons[i].onclick = function() {
           var xcoord = this.getAttribute("data-xaxis");
           var ycoord = this.getAttribute("data-yaxis");
-          controller.model.onePlayerMove(xcoord,ycoord);
+          controller.model.humanMove(xcoord,ycoord);
           controller.updateHTML();
         }
       }
