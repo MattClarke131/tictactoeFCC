@@ -4,7 +4,7 @@ console.log("model.js successfully loaded");
 var Tictac = {};
 Tictac.Model = function() {
   //private
-  var gameBoard = [["","",""],["","",""],["","",""]];
+  var gameBoard;
     //gameBoard[x-coord][y-coord];
   var activePlayer = "x";
   var numPlayers = null;
