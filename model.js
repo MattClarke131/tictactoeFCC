@@ -107,82 +107,59 @@ Tictac.Model = function() {
       //else
       return true;
     },
-
-    //Two player game
-    startTwoPlayerGame: function() {
-      this.resetBoard();
-      this.setNumPlayers(2);
-    },
-    twoPlayerMove: function(x,y) {
-      if(this.isLegalMove(x,y)) {
-        this.setSquare(x,y,activePlayer);
-        switch(this.checkGameStatus()) {
-          case "incomplete":
-            this.toggleActivePlayer();
-            break;
-          case "draw":
-            alert("GAME IS A DRAW");
-            break;
-          case "x":
-            alert("X WINS!");
-            break;
-          case "o":
-            alert("O WINS!");
-            break;
-        };
-      };
-    },
-
-    //One player game
     startOnePlayerGame: function() {
       this.resetBoard();
       this.setNumPlayers(1);
     },
-    onePlayerMove: function(x,y) {
+    startTwoPlayerGame: function() {
+      this.resetBoard();
+      this.setNumPlayers(2);
+    },
+    humanMove: function(x,y) {
       if(this.isLegalMove(x,y)) {
         this.setSquare(x,y,activePlayer);
-        switch(this.checkGameStatus()) {
-          case "incomplete":
-            this.toggleActivePlayer();
-            this.playRandomMove();
-            switch(this.checkGameStatus()) {
-              case "incomplete":
-                this.toggleActivePlayer();
-                break;
-              case "draw":
-                alert("GAME IS A DRAW");
-                break;
-              case "x":
-                alert("X WINS!");
-                break;
-              case "o":
-                alert("O WINS!");
-                break;
-            };
-            break;
-          case "draw":
-            alert("GAME IS A DRAW");
-            break;
-          case "x":
-            alert("X WINS!");
-            break;
-          case "o":
-            alert("O WINS!");
-            break;
+      };
+      if(this.checkGameStatus() != "incomplete") {
+        this._finishGame();
+      } else if(numPlayers == 1) {
+        this.toggleActivePlayer();
+        randMove = this._selectRandomMove();
+        this.setSquare(randMove[0], randMove[1], activePlayer);
+        if(this.checkGameStatus() != "incomplete") {
+          this._finishGame();
+        } else {
+          this.toggleActivePlayer();
         };
+      } else {
+        this.toggleActivePlayer();
       };
     },
-    playRandomMove: function() {
-      var availableMoves = [];
-      for(i=0;i<3;i++) {
-        for(j=0;j<3;j++) {
+    _finishGame: function() {
+      switch(this.checkGameStatus()) {
+        case "incomplete":
+          break;
+        case "draw":
+          alert("GAME IS A DRAW");
+          break;
+        case "x":
+          alert("X WINS!");
+          break;
+        case "o":
+          alert("O WINS!");
+          break;
+      };
+    },
+    _selectRandomMove: function() {
+      var legalMoves = [];
+      for(var i=0;i<3;i++) {
+        for(var j=0;j<3;j++) {
           if(this.isLegalMove(i,j)) {
-            availableMoves.push([i,j]);
+            legalMoves.push([i,j]);
           };
         };
       };
-      var move =availableMoves[Math.floor(Math.random()*availableMoves.length)];
-      this.setSquare(move[0],move[1],activePlayer);
+      var move = legalMoves[Math.floor(Math.random()*legalMoves.length)];
+      return move;
     },
 
     //Debug
