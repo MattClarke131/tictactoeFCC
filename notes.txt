@@ -34,4 +34,7 @@ Questions
 1. What should I consider when making data structures?
     is an array of strings or an array of numbers better?
     or does that not matter as much
+    shawn: pick one, but provide narrow pipes so that you can refactor later as you figure out the best approach. (see also: don't make unnecessary forcing moves, leave miai, etc etc)
 2. How should I write a test file?
+3. How do I take a state machine and write it into code?
+  or How do I manage state, and transitions between states?
