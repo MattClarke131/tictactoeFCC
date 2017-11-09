@@ -7,4 +7,21 @@ HTML: A+
 CSS:
   using classes like ids. insead, try trusting the tree structure of html/css
   -Sass and Less exist. They are alternatives to CSS. for when you eventually tire of all the repetition
-  
+
+model JS
+  checkgamestatus is difficult to understand. probably better to factor it into four distinct parts:
+    checkVerticalVictory(colNum)
+    checkHorizontalVictory(rowNum)
+    checkForwardDiagonaolVictory()
+    checkBackwardDiagonalVictory()
+  setNumPlayers should be private since you have startTwoPlayerGame and startOnePlayerGame
+  activePlayer API is wicked on point
+  instead of implementing reset board in two different ways, just call resetBoard before returning tictaco, which has the same effect
+    still need to declare the variables, just not assign their initial value
+  "private methods" that are for internal use only should hav e their name be prefixed with _ as a convention meaning "private"
+    expose the simplest possible API (but no simpler)
+
+controller JS
+  A+!
+  level 3, with level 4 as i+1
+  maybe ready for jQuery
