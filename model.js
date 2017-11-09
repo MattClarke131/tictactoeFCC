@@ -171,4 +171,4 @@ Tictac.Model = function() {
   };
   tictac.resetBoard();
   return tictac;
-}
+};
