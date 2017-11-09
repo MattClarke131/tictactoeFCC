@@ -12,9 +12,6 @@ Tictac.Model = function() {
   //public
   var tictac = {
     //Get methods
-    getBoard: function() {
-      return gameBoard;
-    },
     getSquare: function(x,y) {
       return gameBoard[x][y];
     },
