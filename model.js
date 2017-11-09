@@ -6,7 +6,7 @@ Tictac.Model = function() {
   //private
   var gameBoard;
     //gameBoard[x-coord][y-coord];
-  var activePlayer = "x";
+  var activePlayer;
   var numPlayers = null;
 
   //public
