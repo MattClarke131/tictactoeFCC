@@ -29,6 +29,7 @@ Tictac.Controller = function(node) {
     },
     init2PGame: function() {
       var controller = this;
+      controller._showGameBoard();
       var buttons =
         controller.ticTacBox.getElementsByClassName("tictactoeButton");
       for(var i=0;i<9;i++) {
@@ -42,6 +43,7 @@ Tictac.Controller = function(node) {
     },
     init1PGame: function() {
       var controller = this;
+      controller._showGameBoard();
       var buttons =
         controller.ticTacBox.getElementsByClassName("tictactoeButton");
       for(var i=0;i<9;i++) {
@@ -52,6 +54,11 @@ Tictac.Controller = function(node) {
           controller.updateHTML();
         }
       }
+    },
+    _showGameBoard: function() {
+      var controller = this;
+      gameBoard = controller.ticTacBox.getElementsByClassName("ticTacToeGame")[0];
+      gameBoard.removeAttribute("hidden");
     },
     updateHTML: function() {
       var controller = this;
