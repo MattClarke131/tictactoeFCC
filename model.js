@@ -118,6 +118,8 @@ Tictac.Model = function() {
     humanMove: function(x,y) {
       if(this.isLegalMove(x,y)) {
         this.setSquare(x,y,activePlayer);
+      } else {
+        return;
       };
       if(this.checkGameStatus() != "incomplete") {
         this._finishGame();
